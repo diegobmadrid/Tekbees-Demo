@@ -1,0 +1,21 @@
+.experiences-detail__accordeon label {
+    width: 100%;
+}
+
+.experiences-detail__accordeon .experiences-detail__accordeon--panel {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: height 200ms ease, visibility 100ms ease, opacity 100ms ease;
+}
+
+.experiences-detail__accordeon_check {
+    display: none;
+}
+
+.experiences-detail__accordeon input[type="checkbox"]:checked+.experiences-detail__accordeon--panel {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    transition: height 500ms ease, visibility 400ms ease, opacity 200ms ease;
+}
