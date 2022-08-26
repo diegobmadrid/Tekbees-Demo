@@ -1,11 +1,14 @@
 import axios from "axios"
 
-export const loginUser = async () => {
+export const loginUser = async (username: string, password: string) => {
+    const data = {
+        "username": username,
+        "password": password
+    }
     const config = {
-        url: "https://tekbees-back-demo.herokuapp.com/",
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
+        method: "post",
+        url: "https://tekbees-back-demo.herokuapp.com/users",
+        data: data
     }
     const p1 = await axios(config)
         .then((res) => { return res.data })

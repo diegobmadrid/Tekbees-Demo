@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import React, { FC, useState } from 'react'
 import { loginUser } from '../../../helpers/Controllers.login';
 
@@ -11,8 +12,11 @@ export const LoginForm: FC = () => {
 
     const onSubmit = async (e: any) => {
         e.preventDefault()
-        const p1 = await loginUser();
-        console.log(p1)
+        const p1 = await loginUser(dataUser.username, dataUser.password);
+        // console.log(p1)
+        if (p1.status === 200) {
+            Router.push(`/dashboardAdmin`);
+        }
     }
 
 
@@ -33,7 +37,8 @@ export const LoginForm: FC = () => {
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                                 Password
                             </label>
-                            <input required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="xxxxxxxxxxxxxxxx" />
+                            <input required className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="xxxxxxxxxxxxxxxx"
+                                onChange={handleInput} value={dataUser.password} />
                         </div>
                         <div className="flex items-center w-full justify-center">
                             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
