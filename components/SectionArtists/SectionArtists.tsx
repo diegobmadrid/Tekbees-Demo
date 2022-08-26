@@ -10,7 +10,7 @@ export const SectionArtists: FC = () => {
 
     const configGetArtists: AxiosRequestConfig = {
         method: 'get',
-        url: 'http://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&limit=10&api_key=cef240c04a419e061d0f317d47b7269f&format=json',
+        url: 'https://ws.audioscrobbler.com/2.0/?method=tag.gettopartists&tag=disco&limit=10&api_key=cef240c04a419e061d0f317d47b7269f&format=json',
     };
     useEffect(() => {
         setLoading(true);
