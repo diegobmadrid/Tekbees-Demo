@@ -10,7 +10,7 @@ export const BuyModal: FC<IBuyModal> = ({ setShowModal }) => {
         setShowModal(false);
     }
 
-    const handleInputPay = (e: any) => {
+    const handleInputPay = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDataPay({ ...dataPay, [e.target.name]: e.target.value })
     }
 
